@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+
+body{
+    background-color: #f8edd1;
+    font-family: 'Braah One';
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+fieldset {
+    border: none;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+fieldset div {
+    border: 1px solid white;
+    width: 100vw;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.a {
+    background-color: #275060;
+}
+.b {
+    background-color: #00bfa9;
+}
+.c {
+    background-color: #ff9b4a;
+}
+.d {
+    background-color: #ff6d48;
+}
+legend {
+    text-align: center;
+    color: #01131b;
+}
+input {
+    flex-grow: 1;
+    display: none;
+}
+label {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input:checked + label {
+    background-color: green;
+}
