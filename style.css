@@ -13,13 +13,16 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: 00bfa9;
 }
 h1 {
     color: #083a50;
     font-size: 3rem;
     text-align: center;
 }
-
+#intro h2 {
+    color: #ff6d48;
+}
 /* todo el fieldset */
 fieldset {
     border: none;
