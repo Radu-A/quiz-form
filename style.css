@@ -58,5 +58,21 @@ label {
 }
 input:checked + label {
     background-color: white;
-    color: #01131b
+    color: #0dde05;
+    font-size: 1.3rem;
+}
+button {
+    color: white;
+    background-color: #ffb703;
+    margin: 0 auto;
+}
+.correct {
+    background-color: #8bff87;
+    color: #0dde05;
+    font-size: 1.3rem;
+}
+.wrong {
+    background-color: #f77d7d;
+    color: #ff0000;
+    font-size: 1.3rem;
 }
