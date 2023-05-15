@@ -49,6 +49,10 @@ myform.addEventListener("submit", function(event) {
                 legend.appendChild(message);
             }
         }
+        window.scroll({
+            top: 0,
+            behavior: "smooth"
+        })
     }
 
 

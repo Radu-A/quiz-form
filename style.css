@@ -7,6 +7,18 @@ body{
     margin: 0;
     padding: 0;
 }
+/* intro */
+#intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1 {
+    color: #083a50;
+    font-size: 3rem;
+    text-align: center;
+}
 
 /* todo el fieldset */
 fieldset {
