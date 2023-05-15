@@ -14,6 +14,8 @@ myform.addEventListener("submit", function(event) {
     const fieldsets = document.getElementsByTagName("fieldset");
     //Sabemos también el número fildsets cubiertos
     const checked = document.querySelectorAll("input:checked");
+    //declaro un sumatorio para registrar cuantas respuestas se han acertado
+    let sumCorrect = 0;
     //si hay menos fieldsets cubiertos que preguntas muestra alerta
     if (checked.length < fieldsets.length) {
         alert("Debes responder a todas las preguntas")
@@ -30,6 +32,7 @@ myform.addEventListener("submit", function(event) {
             //creo el mensaje vacío
             const message = document.createElement("h5");
             if (answer.id === correct[i]) {
+                sumCorrect++;
                 //desmarco la opción
                 answer.checked = false;
                 //añado la clase "correct" al div padre
@@ -49,6 +52,11 @@ myform.addEventListener("submit", function(event) {
                 legend.appendChild(message);
             }
         }
+        const intro = document.getElementById("intro");
+        const result = document.createElement("div");
+        result.innerHTML = `<h2>Respuestas acertadas:</h2>
+                            <h2>${sumCorrect} / 10</h2>`;
+        intro.appendChild(result);
         window.scroll({
             top: 0,
             behavior: "smooth"
