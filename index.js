@@ -48,7 +48,7 @@ myform.addEventListener("submit", function(event) {
                 legend.appendChild(message);
             }
         }
-        //muestro las respuestas acertadas y vuelvo a la pantalla de inicio
+        //muestro las respuestas acertadas 
         const intro = document.getElementById("intro");
         const result = document.createElement("div");
         result.innerHTML = `<div id="result">
@@ -57,15 +57,18 @@ myform.addEventListener("submit", function(event) {
                                 <button id="again">Otra vez</button>
                             </div>`;
         intro.appendChild(result);
+        //vuelvo a la pantalla de inicio
         window.scroll({
             top: 0,
             behavior: "smooth"
         })
+        //bloqueo los input para que no se puedan seguir seleccionando
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(element=>element.setAttribute("disabled", "disabled"));
         //RECARGAR PÁGINA CON BOTÓN "OTRA VEZ"
         const btnAgain = document.getElementById("again");
         btnAgain.addEventListener("click", function(event) {
             event.preventDefault();
-
             location.reload();
         })
     }
