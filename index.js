@@ -9,16 +9,13 @@ const inputs = document.querySelectorAll("input");
 myform.addEventListener("submit", function(event) {
     event.preventDefault();
     //Primero nos aseguramos de que responda todas las preguntas
-    //Sabemos el número de fieldsets
     const fieldsets = document.getElementsByTagName("fieldset");
-    //Sabemos también el número fildsets cubiertos
     const checked = document.querySelectorAll("input:checked");
     //declaro un sumatorio para registrar cuantas respuestas se han acertado
     let sumCorrect = 0;
     //si hay menos fieldsets cubiertos que preguntas muestra alerta
     if (checked.length < fieldsets.length) {
         alert("Debes responder a todas las preguntas")
-        //si todos los fildsets han sido cubiertos continúa
     } else {
         //recorro todos los fielsets
         for (let i = 0; i < fieldsets.length; i++) {
@@ -51,16 +48,26 @@ myform.addEventListener("submit", function(event) {
                 legend.appendChild(message);
             }
         }
+        //muestro las respuestas acertadas y vuelvo a la pantalla de inicio
         const intro = document.getElementById("intro");
         const result = document.createElement("div");
-        result.innerHTML = `<h2>Respuestas acertadas:</h2>
-                            <h2>${sumCorrect} / 10</h2>`;
+        result.innerHTML = `<div id="result">
+                                <h2>Aciertos: ${sumCorrect} / 10</h2>
+                                <h2></h2>
+                                <button id="again">Otra vez</button>
+                            </div>`;
         intro.appendChild(result);
         window.scroll({
             top: 0,
             behavior: "smooth"
         })
+        //RECARGAR PÁGINA CON BOTÓN "OTRA VEZ"
+        const btnAgain = document.getElementById("again");
+        btnAgain.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            location.reload();
+        })
     }
-
-
 })
+

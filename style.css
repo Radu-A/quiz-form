@@ -22,6 +22,7 @@ h1 {
 }
 #intro h2 {
     color: #ff6d48;
+    margin: 0;
 }
 /* todo el fieldset */
 fieldset {
@@ -110,7 +111,7 @@ input:checked + label {
     border: 4px solid #ff0000;
 }
 
-/* div botón */
+/* div botón "submit"*/
 #dbtn {
     height: 100vh;
     display: flex;
@@ -136,4 +137,12 @@ button {
 }
 button:hover {
     cursor: pointer;
+}
+
+/* div botón "result" */
+#result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
