@@ -4,12 +4,12 @@ const myform = document.getElementById("myform");
 //array con las respuestas correctas
 const correct = ['cocodrilo', 'windsor', 'seis', 'clon', 'urano', 'amazonas', 'freud', '969', 'd', 'gotico'];
 const inputs = document.querySelectorAll("input");
+const fieldsets = document.getElementsByTagName("fieldset");
 
 //VALIDAR RESPUESTAS
 myform.addEventListener("submit", function(event) {
     event.preventDefault();
     //Primero nos aseguramos de que responda todas las preguntas
-    const fieldsets = document.getElementsByTagName("fieldset");
     const checked = document.querySelectorAll("input:checked");
     //declaro un sumatorio para registrar cuantas respuestas se han acertado
     let sumCorrect = 0;
@@ -63,7 +63,6 @@ myform.addEventListener("submit", function(event) {
             behavior: "smooth"
         })
         //bloqueo los input para que no se puedan seguir seleccionando
-        const inputs = document.querySelectorAll("input");
         inputs.forEach(element=>element.setAttribute("disabled", "disabled"));
         //RECARGAR PÁGINA CON BOTÓN "OTRA VEZ"
         const btnAgain = document.getElementById("again");
