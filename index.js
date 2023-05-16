@@ -5,7 +5,6 @@ const myform = document.getElementById("myform");
 const correct = ['cocodrilo', 'windsor', 'seis', 'clon', 'urano', 'amazonas', 'freud', '969', 'd', 'gotico'];
 const inputs = document.querySelectorAll("input");
 
-
 //VALIDAR RESPUESTAS
 myform.addEventListener("submit", function(event) {
     event.preventDefault();
