@@ -1,8 +1,8 @@
 # Quiz form
 
-This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+Proyecto indiviual para crear un juego de preguntas y respuestas múltiples aplicando conocimientos de CSS y Javascript, principalmente estilo y validación de formularios.
 
-## Table of contents
+## Tabla de contenidos
 
 - [Resumen](#resumen)
   - [Objetivo](#objetivo)
@@ -12,8 +12,6 @@ This is a solution to the [News homepage challenge on Frontend Mentor](https://w
   - [Construido con](#construido-con)
   - [Puntos clave](#puntos-clave)
   - [Falta por desarrollar](#falta-por-desarrollar)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Resumen
 
@@ -40,7 +38,7 @@ Requisitos
 
 ### Links
 
-- Solution URL: https://github.com/Radu-A/Radu-A.github.io/tree/master
+- Repositorio URL: https://github.com/Radu-A/Radu-A.github.io/tree/master
 - Live Site URL: https://radu-a.github.io/
 
 ## Proceso
