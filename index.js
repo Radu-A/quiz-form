@@ -1,3 +1,6 @@
+
+
+
 //VARIABLES
 //creo "myform" para luego usar el evento "submit"
 const myform = document.getElementById("myform");
@@ -15,7 +18,15 @@ myform.addEventListener("submit", function(event) {
     let sumCorrect = 0;
     //si hay menos fieldsets cubiertos que preguntas muestra alerta
     if (checked.length < fieldsets.length) {
-        alert("Debes responder a todas las preguntas")
+        Swal.fire({
+            title: 'No tan rápido',
+            text: 'Tienes que responder a todas las preguntas',
+            icon: 'info',
+            confirmButtonText: 'Cool',
+            color: '#ff6d48',
+            background: '#adf8ef',
+            confirmButtonColor: '#275060'
+        })
     } else {
         //recorro todos los fielsets
         for (let i = 0; i < fieldsets.length; i++) {
