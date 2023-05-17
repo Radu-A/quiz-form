@@ -50,6 +50,7 @@ Requisitos
 - Flexbox
 - Mobile-first workflow
 - Javascript
+- SweetAlert2
 
 ### Puntos clave
 
@@ -63,6 +64,9 @@ Validación más compleja:
 - Llevar al usuario de vuelta al principio de la página
 - Mostrar resultado con el número de respuestas acertadas
 - Mostrar un nuevo "button" funcional para dar la posibilidad de repetir el "quiz"
+
+SweetAlert:
+- Manejo de las alertas con una aplicación externa
 
 ### Falta por desarrollar
 

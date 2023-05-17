@@ -1,6 +1,4 @@
 
-
-
 //VARIABLES
 //creo "myform" para luego usar el evento "submit"
 const myform = document.getElementById("myform");
