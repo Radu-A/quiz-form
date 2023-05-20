@@ -1,34 +1,51 @@
 //creo "myform" para luego usar el evento "submit"
 const myform = document.getElementById("myform");
-const correct = [];
+let correct = [];
+let numQuestions = 0;
 //FASE 2 - RESPUESTAS ALEATORIAS + SPA + FIREBASE!!!!
+//algoritmo Fisher-Yates para desordenar el array de respuestas
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
 fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
     .then(res=>res.json())
     .then(data=> {
         data.results.forEach((element, i)=> {
+            numQuestions++;
+            let answers = [];
             correct.push(element.correct_answer);
+            answers.push(element.correct_answer);
+            element.incorrect_answers.forEach(item=> {
+                answers.push(item);
+            })
+            shuffle(answers);
+            console.log(correct);
+            console.log(answers);
             const fieldset = document.createElement("div");
             fieldset.innerHTML = `<fieldset id="fieldset${i + 1}">
                 <div class="dlegend">
                     <legend>${element.question}</legend>
                 </div>
                 <div class="a">
-                    <input type="radio" name="answer${i + 1}" id="${element.correct_answer}">
-                    <label for="${element.correct_answer}">${element.correct_answer}</label>
+                    <input type="radio" name="answer${i + 1}" id="${answers[0]}">
+                    <label for="${answers[0]}">${answers[0]}</label>
                 </div>
                 <div class="b">
-                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[0]}">
-                    <label for="${element.incorrect_answers[0]}">${element.incorrect_answers[0]}</label>
+                    <input type="radio" name="answer${i + 1}" id="${answers[1]}">
+                    <label for="${answers[1]}">${answers[1]}</label>
                 </div>
                 <div class="c">
-                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[1]}">
-                    <label for="${element.incorrect_answers[1]}">${element.incorrect_answers[1]}</label>
+                    <input type="radio" name="answer${i + 1}" id="${answers[2]}">
+                    <label for="${answers[2]}">${answers[2]}</label>
                 </div>
                 <div class="d">
-                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[2]}">
-                    <label for="${element.incorrect_answers[2]}">${element.incorrect_answers[2]}</label>
+                    <input type="radio" name="answer${i + 1}" id="${answers[3]}">
+                    <label for="${answers[3]}">${answers[3]}</label>
                 </div>
-                
             </fieldset>`;
             myform.appendChild(fieldset);
         });
@@ -103,7 +120,7 @@ function validation(correct) {
             const intro = document.getElementById("intro");
             const result = document.createElement("div");
             result.innerHTML = `<div id="result">
-                                    <h2>Aciertos: ${sumCorrect} / 10</h2>
+                                    <h2>Aciertos: ${sumCorrect} / ${numQuestions}</h2>
                                     <h2></h2>
                                     <button id="again">Otra vez</button>
                                 </div>`;
