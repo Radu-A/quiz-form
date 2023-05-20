@@ -16,6 +16,7 @@ myform.addEventListener("submit", function(event) {
     let sumCorrect = 0;
     //si hay menos fieldsets cubiertos que preguntas muestra alerta
     if (checked.length < fieldsets.length) {
+        //muestro alerta con "SweetAlert"
         Swal.fire({
             title: 'No tan rápido',
             text: 'Tienes que responder a todas las preguntas',
