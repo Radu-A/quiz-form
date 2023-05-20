@@ -1,49 +1,54 @@
 //creo "myform" para luego usar el evento "submit"
 const myform = document.getElementById("myform");
-
+const correct = [];
 //FASE 2 - RESPUESTAS ALEATORIAS + SPA + FIREBASE!!!!
 fetch("https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple")
     .then(res=>res.json())
     .then(data=> {
         data.results.forEach((element, i)=> {
-            console.log(element);
+            correct.push(element.correct_answer);
             const fieldset = document.createElement("div");
             fieldset.innerHTML = `<fieldset id="fieldset${i + 1}">
                 <div class="dlegend">
                     <legend>${element.question}</legend>
                 </div>
                 <div class="a">
-                    <input type="radio" name="animal" id="a">
-                    <label for="a">${element.correct_answer}</label>
+                    <input type="radio" name="answer${i + 1}" id="${element.correct_answer}">
+                    <label for="${element.correct_answer}">${element.correct_answer}</label>
                 </div>
-                <div class="b true">
-                    <input class="true" type="radio" name="animal" id="b">
-                    <label for="b">${element.incorrect_answers[0]}</label>
+                <div class="b">
+                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[0]}">
+                    <label for="${element.incorrect_answers[0]}">${element.incorrect_answers[0]}</label>
                 </div>
                 <div class="c">
-                    <input type="radio" name="animal" id="c">
-                    <label for="c">${element.incorrect_answers[1]}</label>
+                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[1]}">
+                    <label for="${element.incorrect_answers[1]}">${element.incorrect_answers[1]}</label>
                 </div>
                 <div class="d">
-                    <input type="radio" name="animal" id="d">
-                    <label for="d">${element.incorrect_answers[2]}</label>
+                    <input type="radio" name="answer${i + 1}" id="${element.incorrect_answers[2]}">
+                    <label for="${element.incorrect_answers[2]}">${element.incorrect_answers[2]}</label>
                 </div>
                 
             </fieldset>`;
             myform.appendChild(fieldset);
         });
-        validation();
+        validation(correct);
+        const divBtn = document.createElement("div");
+        divBtn.innerHTML = `<div id="dbtn">                
+            <div class="dlegend">
+                <h2>Press the button to know how many answers you have got right</h2>
+            </div>
+            <button type="submit" id="btn">Resolver</button>
+        </div>`;
+        myform.appendChild(divBtn);
     })
 
 //VARIABLES
-
-//array con las respuestas correctas
-const correct = ['cocodrilo', 'windsor', 'seis', 'clon', 'urano', 'amazonas', 'freud', '969', 'd', 'gotico'];
 const inputs = document.querySelectorAll("input");
 const fieldsets = document.getElementsByTagName("fieldset");
 
 //VALIDAR RESPUESTAS
-function validation() {
+function validation(correct) {
     myform.addEventListener("submit", function(event) {
         event.preventDefault();
         //Primero nos aseguramos de que responda todas las preguntas
@@ -54,8 +59,8 @@ function validation() {
         if (checked.length < fieldsets.length) {
             //muestro alerta con "SweetAlert"
             Swal.fire({
-                title: 'No tan rápido',
-                text: 'Tienes que responder a todas las preguntas',
+                title: 'Calm down',
+                text: 'You have to answer all the questions',
                 icon: 'info',
                 confirmButtonText: 'Cool',
                 color: '#ff6d48',
